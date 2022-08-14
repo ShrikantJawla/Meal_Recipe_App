@@ -1,9 +1,13 @@
 /** @format */
 
 let fetchData = async (url) => {
-	let res = await fetch(url);
-	let data = await res.json();
-	return data.meals;
+	try {
+		let res = await fetch(url);
+		let data = await res.json();
+		return data.meals;
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 function append(data, container) {
@@ -32,7 +36,6 @@ function appendFullDetails(data, container) {
 	container.innerHTML = null;
 	data.forEach((ele) => {
 		let {
-			idMeal,
 			strArea,
 			strCategory,
 			strIngredient1,
