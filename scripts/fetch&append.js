@@ -29,6 +29,7 @@ function append(data, container) {
 	});
 }
 function appendFullDetails(data, container) {
+	container.innerHTML = null;
 	data.forEach((ele) => {
 		let {
 			idMeal,
@@ -76,6 +77,7 @@ function appendFullDetails(data, container) {
 }
 
 function appendDataUnderSearchBar(data, container) {
+	container.innerHTML = null;
 	data.forEach((ele) => {
 		let { strArea, strCategory, strMeal, strMealThumb, strTags, idMeal } = ele;
 		let div = document.createElement("div");
