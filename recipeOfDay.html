@@ -1,0 +1,28 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Recipe of the Day</title>
+		<link rel="stylesheet" href="./styles/navbar.css" />
+		<link rel="stylesheet" href="./styles/randomRecipe.css" />
+	</head>
+	<body>
+		<nav></nav>
+		<div class="container"></div>
+	</body>
+</html>
+<script type="module">
+	import navbar from "./components/navbar.js";
+	import { fetchData, appendFullDetails } from "./scripts/fetch&append.js";
+	document.querySelector("nav").innerHTML = navbar();
+	let res = await fetchData(
+		"https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"
+	);
+	// console.log(res);
+	let cont = document.querySelector(".container");
+	appendFullDetails(res, cont);
+</script>

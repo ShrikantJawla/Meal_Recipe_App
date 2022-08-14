@@ -1,0 +1,77 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Recipes</title>
+		<link rel="stylesheet" href="./styles/index.css" />
+		<link rel="stylesheet" href="./styles/navbar.css" />
+		<script
+			src="https://kit.fontawesome.com/5ccbe3257d.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<nav></nav>
+		<div class="categories">
+			<!-- <button class="catBtn">Music</button> -->
+		</div>
+		<div class="container"></div>
+	</body>
+</html>
+
+<script type="module">
+	import navbar from "./components/navbar.js";
+	import { fetchData, append } from "./scripts/fetch&append.js";
+	document.querySelector("nav").innerHTML = navbar();
+	let res = await fetchData(
+		"https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"
+	);
+	// console.log(res);
+	let cont = document.querySelector(".container");
+	append(res, cont);
+</script>
+
+<script type="module">
+	let searchbar = document.getElementById("searchBar");
+	import {
+		fetchData,
+		appendDataUnderSearchBar,
+	} from "./scripts/fetch&append.js";
+	let id;
+	searchbar.addEventListener("input", () => {
+		clearTimeout(id);
+
+		id = setTimeout(() => {
+			let value = document.querySelector("#searchBar").value;
+			let cont = document.querySelector(".displaySearchedData");
+			if (value !== "") cont.classList.add("visible");
+			else cont.classList.remove("visible");
+			// let res1 =await fetchData(
+			// 	`https://www.themealdb.com/api/json/v1/1/search.php?s=${value}`
+			// );
+			//    console.log(res1)
+			fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${value}`)
+				.then((res) => res.json())
+				.then((data) => {
+					// console.log(data);
+					appendDataUnderSearchBar(data.meals, cont);
+				});
+		}, 300);
+	});
+</script>
+
+<script type="module">
+	import { appendbuttons } from "./scripts/fetch&append.js";
+	//Appending buttons
+	fetch(`https://www.themealdb.com/api/json/v1/1/list.php?c=list`)
+		.then((res) => res.json())
+		.then((data) => {
+			// console.log(data.meals);
+			let btnContainer = document.querySelector(".categories");
+			appendbuttons(data.meals, btnContainer);
+		});
+</script>

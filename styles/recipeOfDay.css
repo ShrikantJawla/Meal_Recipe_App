@@ -1,0 +1,90 @@
+/** @format */
+
+* {
+	box-sizing: border-box;
+	padding: 0%;
+	margin: 0px;
+}
+body {
+	padding: 0%;
+	margin: 0%;
+}
+.container {
+	margin: auto;
+	margin-top: 20px;
+	width: 79%;
+	padding: 12px;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 10px;
+}
+.recipe {
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	padding: 5px;
+	/* border: 1px solid red; */
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+.mealImage {
+	margin-top: 9px;
+	width: 80%;
+	height: 420px;
+	margin-bottom: 10px;
+}
+.mealName {
+	font-size: 20px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 600;
+	color: blue;
+	padding: 4px;
+}
+.category {
+	font-size: 19px;
+	padding: 4px;
+	margin-top: 10px;
+}
+.area {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.watchRecipe:hover {
+	font-size: 19px;
+}
+.instructions {
+	padding: 14px;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.ingredientsContainer {
+	padding: 10px;
+	margin-bottom: 10px;
+	/* border: 1px solid red; */
+}
+.ingredientsHeading {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 1.3rem;
+	color: blueviolet;
+}
+.ingredients {
+	margin-bottom: 10px;
+	/* border: 1px solid red; */
+}
+.tags {
+	margin-bottom: 20px;
+}
+.watchRecipe {
+	text-decoration: none;
+	font-size: 18px;
+	color: red;
+	font-weight: 600;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	border: none;
+	padding: 9px;
+	background-color: aquamarine;
+	margin-top: 20px;
+	border-radius: 10px;
+}
