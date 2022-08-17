@@ -32,6 +32,7 @@ function append(data, container) {
 		container.append(div);
 	});
 }
+
 function appendFullDetails(data, container) {
 	container.innerHTML = null;
 	data.forEach((ele) => {
